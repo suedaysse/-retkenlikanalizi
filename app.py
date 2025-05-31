@@ -13,7 +13,7 @@ feature_columns = joblib.load("ridge_model_columns.pkl")
 # 📁 Kalıcı kayıt dosyası
 csv_path = "user_predictions.csv"
 if not os.path.exists(csv_path):
-    pd.DataFrame(columns=["Kullanıcı", "Tarih", "Tahmin", "Uyku", "Kafein", "Ekran Süresi", "Egzersiz"]).to_csv(csv_path, index=False)
+    pd.DataFrame(columns=["Kullanıcı", "Tarih", "Tahmin", "Uyku Süresi", "Kafein Miktarı (mg)", "Ekran Süresi", "Egzersiz Süresi"]).to_csv(csv_path, index=False)
 
 df = pd.read_csv(csv_path)
 
@@ -24,7 +24,7 @@ st.title("💼 Üretkenlik Tahmini")
 st.markdown("""
 ## 🧠 Ne Yapıyor?
 
-Bu uygulama, uyku süresi, kafein alımı, ekran süresi, uyku kalitesi ve egzersiz süresi gibi verileri kullanarak **günlük üretkenlik skorunuzu** tahmin eder.
+Bu uygulama, uyku süresi, kafein alımı, ekran süresi ve egzersiz süresi gibi verileri kullanarak **günlük üretkenlik skorunuzu** tahmin eder.
 
 🔸 Uygulama iki şekilde kullanılabilir:
 - **Hızlı Tahmin Alanı:**  Verilerinizi girin, anında tahmini üretkenlik skorunuzu görün.
@@ -45,7 +45,7 @@ Bu sayede kendi verileriniz üzerinden günlük üretkenlik düzeyinizi görebil
 st.header("🔍 Hızlı Tahmin")
 with st.form("quick_form"):
     sleep = st.slider("🛌 Uyku Süresi (saat)", 4.0, 10.0, 7.0, 0.1)
-    caffeine = st.slider("☕ Kafein (mg)", 0, 300, 150, 10)
+    caffeine = st.slider("☕ Kafein Miktarı (mg)", 0, 300, 150, 10)
     screen = st.slider("📱 Ekran Süresi (dk)", 0, 180, 90, 5)
     exercise = st.slider("🏃‍♀️ Egzersiz Süresi (dakika)", 0, 120, 30, 5)
     quick_submit = st.form_submit_button("📊 Tahmin Et")
