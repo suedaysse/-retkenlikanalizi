@@ -47,7 +47,7 @@ with st.form("quick_form"):
     sleep = st.slider("🛌 Uyku Süresi (saat)", 4.0, 10.0, 7.0, 0.1)
     caffeine = st.slider("☕ Kafein Miktarı (mg)", 0, 300, 150, 10)
     screen = st.slider("📱 Ekran Süresi (dk)", 0, 180, 90, 5)
-    exercise = st.slider("🏃‍♀️ Egzersiz Süresi (dakika)", 0, 120, 30, 5)
+    exercise = st.slider("🏃‍♀️ Egzersiz Süresi (dk)", 0, 120, 30, 5)
     quick_submit = st.form_submit_button("📊 Tahmin Et")
 
     if quick_submit:
@@ -71,9 +71,9 @@ with st.sidebar.expander("📅 Günlük Tahmin Kaydı", expanded=False):
     date = st.date_input("📆 Tarih", value=datetime.date.today())
 
     with st.form("calendar_form"):
-        sleep2 = st.slider("🛌 Uyku Süresi", 4.0, 10.0, 7.0, 0.1, key="sleep2")
+        sleep2 = st.slider("🛌 Uyku Süresi (saat) ", 4.0, 10.0, 7.0, 0.1, key="sleep2")
         caffeine2 = st.slider("☕ Kafein Miktarı (mg)", 0, 300, 150, 10, key="caffeine2")
-        screen2 = st.slider("📱 Ekran Süresi", 0, 180, 90, 5, key="screen2")
+        screen2 = st.slider("📱 Ekran Süresi (dk) ", 0, 180, 90, 5, key="screen2")
         exercise2 = st.slider("🏃‍♀️ Egzersiz Süresi (dk)", 0, 120, 30, 5, key="exercise2")
         save_submit = st.form_submit_button("💾 Kaydet")
 
